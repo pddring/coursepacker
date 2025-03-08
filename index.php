@@ -120,13 +120,13 @@ foreach($quizzes as $s) {
 
 // get all media from quiz questions
 $quizzes = $DB->get_records_sql('SELECT Q.*, C.id AS course, Qz.id AS quizid
-FROM question Q 
-    JOIN question_versions QV ON Q.id = QV.questionid
-    JOIN question_bank_entries QBE ON QV.questionbankentryid = QBE.id
-    JOIN question_references QR ON QBE.id = QR.questionbankentryid
-    JOIN quiz_slots QS on QR.itemid = QS.id
-    JOIN quiz Qz ON Qz.id=QS.quizid
-    JOIN course C ON C.id=Qz.course
+FROM {question} Q 
+    JOIN {question_versions} QV ON Q.id = QV.questionid
+    JOIN {question_bank_entries} QBE ON QV.questionbankentryid = QBE.id
+    JOIN {question_references} QR ON QBE.id = QR.questionbankentryid
+    JOIN {quiz_slots} QS on QR.itemid = QS.id
+    JOIN {quiz} Qz ON Qz.id=QS.quizid
+    JOIN {course} C ON C.id=Qz.course
 WHERE 
     QR.component = \'mod_quiz\'
     AND QR.questionarea = \'slot\'

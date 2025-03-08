@@ -161,7 +161,7 @@ if(is_siteadmin()) {
 
                     case 'lesson':
                         $cm = get_coursemodule_from_instance('lesson', $id, $course);
-                        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                        $context = context_module::instance($course);
                         $result["context"] = $context->id;
                         if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                             
@@ -226,7 +226,7 @@ if(is_siteadmin()) {
                     case 'lessonpage':
                         $lesson = optional_param('tag', 0, PARAM_INT);
                         $cm = get_coursemodule_from_instance('lesson', $lesson, $course);
-                        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                        $context = context_module::instance($course);
                         $result["context"] = $context->id;
                         if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                             
@@ -290,7 +290,7 @@ if(is_siteadmin()) {
                     
                     case 'quiz':
                         $cm = get_coursemodule_from_instance('quiz', $id, $course);
-                        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                        $context = context_module::instance($course);
                         $result["context"] = $context->id;
                         if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                             
@@ -480,7 +480,7 @@ if(is_siteadmin()) {
 
                 case 'label':
                     $cm = get_coursemodule_from_instance('label', $id, $course);
-                    $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                    $context = context_module::instance($course);
                     $result["context"] = $context->id;
                     if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                         $filename = $matches[1];
@@ -543,7 +543,7 @@ if(is_siteadmin()) {
 
                     case 'pageintro':
                         $cm = get_coursemodule_from_instance('page', $id, $course);
-                        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                        $context = context_module::instance($course);
                         $result["context"] = $context->id;
                         if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                             $filename = $matches[1];
@@ -606,7 +606,7 @@ if(is_siteadmin()) {
 
                     case 'page':
                         $cm = get_coursemodule_from_instance('page', $id, $course);
-                        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+                        $context = context_module::instance($course);
                         $result["context"] = $context->id;
                         if(preg_match("/https?:\/\/.*\/(.*)\.(png|jpg|jpeg|wav|mp3|mp4|mov|avi|flv)/", $url, $matches) && $id > 0 && $course > 0) {
                             
